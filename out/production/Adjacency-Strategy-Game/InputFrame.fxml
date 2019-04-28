@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="InputFrameController">
+    <padding><Insets top="5" bottom="5" left="5" right="5"/></padding>
+    <top>
+        <GridPane>
+            <Label text="Player 1 Name (X): " GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <font>
+                    <Font name="Arial Bold" size="12"/>
+                </font>
+            </Label>
+            <TextField fx:id="player1" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="Player 2 Name (O): " GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <font>
+                    <Font name="Arial Bold" size="12"/>
+                </font>
+            </Label>
+            <TextField fx:id="player2" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Number of Rounds to be played: " GridPane.rowIndex="2" GridPane.columnIndex="0">
+                <font>
+                    <Font name="Arial Bold" size="12"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="numberOfRounds" GridPane.rowIndex="2" GridPane.columnIndex="1" maxWidth="Infinity" />
+        </GridPane>
+    </top>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="5"><padding><Insets top="5"/></padding>
+            <VBox>
+                <Button text="Reset" onAction="#reset">
+                    <padding><Insets top="5" bottom="5" left="10" right="10"/></padding>
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Button>
+            </VBox>
+            <VBox>
+                <Button text="Play" onAction="#play">
+                    <padding><Insets top="5" bottom="5" left="10" right="10"/></padding>
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Button>
+            </VBox>
+        </HBox>
+    </bottom>
+</BorderPane>

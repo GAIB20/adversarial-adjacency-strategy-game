@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="OutputFrameController"
+            prefWidth="800"
+            prefHeight="500">
+    <center>
+        <GridPane fx:id="gameBoard" />
+    </center>
+    <right>
+        <GridPane fx:id="scoreBoard">
+            <padding><Insets left="10" right="10"/></padding>
+
+            <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <Label text="Number Of Rounds Left:" prefWidth="110" wrapText="true" textAlignment="CENTER">
+                    <padding><Insets left="10" right="10"/></padding>
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox id="boxPane" alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                <Label fx:id="roundsLeftLabel">
+
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER" GridPane.rowIndex="3" GridPane.columnIndex="0">
+                <Label text="Player X" >
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                <Label text="Player O">
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Label>
+            </HBox>
+
+            <HBox fx:id="playerXBoxPane" prefWidth="120" alignment="CENTER" GridPane.rowIndex="4" GridPane.columnIndex="0">
+                <Label fx:id="playerXName" wrapText="true" textAlignment="CENTER"/>
+            </HBox>
+
+            <HBox fx:id="playerOBoxPane" prefWidth="120" alignment="CENTER" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                <Label fx:id="playerOName" wrapText="true" textAlignment="CENTER"/>
+            </HBox>
+
+            <HBox id="boxPane" alignment="CENTER" GridPane.rowIndex="5" GridPane.columnIndex="0">
+                <Label fx:id="playerXScoreLabel">
+
+                </Label>
+            </HBox>
+
+            <HBox id="boxPane" alignment="CENTER" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                <Label fx:id="playerOScoreLabel">
+
+                </Label>
+            </HBox>
+
+            <HBox alignment="CENTER" GridPane.rowIndex="7" GridPane.columnIndex="0">
+                <Button id="gameButton" text="End Game" onAction="#endGame">
+                    <padding><Insets top="10" bottom="10" left="10" right="10"/></padding>
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Button>
+            </HBox>
+
+            <HBox alignment="CENTER" GridPane.rowIndex="7" GridPane.columnIndex="1">
+                <Button id="gameButton" text="Play New Game" onAction="#playNewGame">
+                    <padding><Insets top="10" bottom="10" left="10" right="10"/></padding>
+                    <font>
+                        <Font name="Arial Bold" size="12"/>
+                    </font>
+                </Button>
+            </HBox>
+
+        </GridPane>
+    </right>
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+</BorderPane>
