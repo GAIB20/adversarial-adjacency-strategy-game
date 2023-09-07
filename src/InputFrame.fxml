@@ -11,14 +11,14 @@
     <padding><Insets top="5" bottom="5" left="5" right="5"/></padding>
     <top>
         <GridPane>
-            <Label text="Player 1 Name (X): " GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <Label text="Player Name (X): " GridPane.rowIndex="0" GridPane.columnIndex="0">
                 <font>
                     <Font name="Arial Bold" size="12"/>
                 </font>
             </Label>
             <TextField fx:id="player1" GridPane.rowIndex="0" GridPane.columnIndex="1" />
 
-            <Label text="Player 2 Name (O): " GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <Label text="Bot Name (O): " GridPane.rowIndex="1" GridPane.columnIndex="0">
                 <font>
                     <Font name="Arial Bold" size="12"/>
                 </font>
@@ -31,6 +31,13 @@
                 </font>
             </Label>
             <ComboBox fx:id="numberOfRounds" GridPane.rowIndex="2" GridPane.columnIndex="1" maxWidth="Infinity" />
+
+            <Label text="Bot goes first: " GridPane.rowIndex="3" GridPane.columnIndex="0">
+                <font>
+                    <Font name="Arial Bold" size="12"/>
+                </font>
+            </Label>
+            <CheckBox fx:id="isBotFirst" GridPane.rowIndex="3" GridPane.columnIndex="1" />
         </GridPane>
     </top>
 

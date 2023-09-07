@@ -2,6 +2,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 
 import javafx.scene.control.Alert;
@@ -21,6 +22,7 @@ import java.io.IOException;
  */
 public class InputFrameController{
 
+    public CheckBox isBotFirst;
     @FXML
     private TextField player1;
 
@@ -78,7 +80,7 @@ public class InputFrameController{
 
             // Get controller of output frame and pass input including player names and number of rounds chosen.
             OutputFrameController outputFC = loader.getController();
-            outputFC.getInput(this.player1.getText(), this.player2.getText(), this.numberOfRounds.getValue());
+            outputFC.getInput(this.player1.getText(), this.player2.getText(), this.numberOfRounds.getValue(), this.isBotFirst.isSelected());
 
             // Open the new frame.
             Stage secondaryStage = new Stage();
