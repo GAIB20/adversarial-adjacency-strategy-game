@@ -254,21 +254,31 @@ public class OutputFrameController {
         else
             endColumn = j + 1;
 
-
+        if (this.playerXTurn){
+            System.out.println("=============");
+            System.out.println("i: " + i + " j: " + j);
+            System.out.println("startRow: " + startRow + " endRow: " + endRow);
+            System.out.println("startColumn: " + startColumn + " endColumn: " + endColumn);
+        }
         // Search for adjacency for X's and O's or vice versa, and replace them.
         // Update scores for X's and O's accordingly.
-        for (int x = startRow; x <= endRow; x++) {
-            for (int y = startColumn; y <= endColumn; y++) {
+
+        // only place on adjacent cells, diagonal cells are not included
+        for (int row = startRow; row <= endRow; row++) {
+            for (int column = startColumn; column <= endColumn; column++) {
                 if (this.playerXTurn) {
-                    if (this.buttons[x][y].getText().equals("O")) {
-                        this.buttons[x][y].setText("X");
+                    if (this.buttons[row][column].getText().equals("O")) {
+                        this.buttons[row][column].setText("X");
                         this.playerXScore++;
                         this.playerOScore--;
                     }
-                } else if (this.buttons[x][y].getText().equals("X")) {
-                    this.buttons[x][y].setText("O");
-                    this.playerOScore++;
-                    this.playerXScore--;
+                }
+                else {
+                    if (this.buttons[row][column].getText().equals("X")) {
+                        this.buttons[row][column].setText("O");
+                        this.playerOScore++;
+                        this.playerXScore--;
+                    }
                 }
             }
         }
@@ -347,12 +357,13 @@ public class OutputFrameController {
     }
 
     private void moveBot() {
-        int[] botMove = this.bot.move();
+        int[] botMove = this.bot.move(buttons);
         int i = botMove[0];
         int j = botMove[1];
-
+        // new Alert(Alert.AlertType.INFORMATION, "Bot move: " + i + " " + j).showAndWait();
         if (!this.buttons[i][j].getText().equals("")) {
-            new Alert(Alert.AlertType.ERROR, "Bot Invalid Coordinates. Exiting.").showAndWait();
+            // alert the i and j
+            new Alert(Alert.AlertType.ERROR, "Bot Invalid coordinates: Try again!").showAndWait();
             System.exit(1);
             return;
         }
