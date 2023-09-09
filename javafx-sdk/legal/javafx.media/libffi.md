@@ -1,9 +1,9 @@
-## LibFFI v3.2.1
+## LibFFI v3.4.2
 
 ### LibFFI License
-<pre>
+```
 
-libffi - Copyright (c) 1996-2014  Anthony Green, Red Hat, Inc and others.
+libffi - Copyright (c) 1996-2021  Anthony Green, Red Hat, Inc and others.
 See source files for details.
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -25,5 +25,4 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-</pre>
-
+```

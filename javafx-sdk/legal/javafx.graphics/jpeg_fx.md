@@ -1,7 +1,8 @@
-## Independent JPEG Group (IJG) JPEG v9c
+## Independent JPEG Group (IJG) JPEG v9e
 
 ### IJG License
-<pre>
+```
+
 /*
  * jcapimin.c
  *
@@ -10,13 +11,14 @@
  * This file is part of the Independent JPEG Group's software.
  * For conditions of distribution and use, see the accompanying README file.
  */
+
 [From the README file]
 The authors make NO WARRANTY or representation, either express or implied,
 with respect to this software, its quality, accuracy, merchantability, or
 fitness for a particular purpose.  This software is provided "AS IS", and you,
 its user, assume the entire risk as to its quality and accuracy.
 
-This software is copyright (C) 1991-2018, Thomas G. Lane, Guido Vollbeding.
+This software is copyright (C) 1991-2022, Thomas G. Lane, Guido Vollbeding.
 All Rights Reserved except as specified below.
 
 Permission is hereby granted to use, copy, modify, and distribute this
@@ -46,4 +48,4 @@ We specifically permit and encourage the use of this software as the basis of
 commercial products, provided that all warranty or liability claims are
 assumed by the product vendor.
 
-</pre>
+```
