@@ -260,25 +260,21 @@ public class OutputFrameController {
             System.out.println("startRow: " + startRow + " endRow: " + endRow);
             System.out.println("startColumn: " + startColumn + " endColumn: " + endColumn);
         }
+
         // Search for adjacency for X's and O's or vice versa, and replace them.
         // Update scores for X's and O's accordingly.
-
-        // only place on adjacent cells, diagonal cells are not included
-        for (int row = startRow; row <= endRow; row++) {
-            for (int column = startColumn; column <= endColumn; column++) {
+        for (int x = startRow; x <= endRow; x++) {
+            for (int y = startColumn; y <= endColumn; y++) {
                 if (this.playerXTurn) {
-                    if (this.buttons[row][column].getText().equals("O")) {
-                        this.buttons[row][column].setText("X");
+                    if (this.buttons[x][y].getText().equals("O")) {
+                        this.buttons[x][y].setText("X");
                         this.playerXScore++;
                         this.playerOScore--;
                     }
-                }
-                else {
-                    if (this.buttons[row][column].getText().equals("X")) {
-                        this.buttons[row][column].setText("O");
-                        this.playerOScore++;
-                        this.playerXScore--;
-                    }
+                } else if (this.buttons[x][y].getText().equals("X")) {
+                    this.buttons[x][y].setText("O");
+                    this.playerOScore++;
+                    this.playerXScore--;
                 }
             }
         }
@@ -357,7 +353,7 @@ public class OutputFrameController {
     }
 
     private void moveBot() {
-        int[] botMove = this.bot.move(buttons);
+        int[] botMove = this.bot.move(buttons, roundsLeft);
         int i = botMove[0];
         int j = botMove[1];
         // new Alert(Alert.AlertType.INFORMATION, "Bot move: " + i + " " + j).showAndWait();
