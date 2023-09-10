@@ -13,6 +13,8 @@ import javafx.collections.ObservableList;
 
 import java.io.IOException;
 
+import javax.swing.ComboBoxEditor;
+
 /**
  * The InputFrameController class.  It controls input from the users and validates it.
  * If validation is successful, the Adjacency game screen will pop up in a different window.
@@ -32,7 +34,8 @@ public class InputFrameController{
     @FXML
     private ComboBox<String> numberOfRounds;
 
-
+    @FXML
+    private ComboBox<String> botAlgorithm;
     /**
      * Initialize the dropdown ComboBox with a list of items that are allowed to be selected.
      * Select the first item in the list as the default value of the dropdown.
@@ -45,6 +48,7 @@ public class InputFrameController{
                 "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28");
         this.numberOfRounds.setItems(numberOfRoundsDropdown);
         this.numberOfRounds.getSelectionModel().select(27);
+        this.botAlgorithm.setItems(FXCollections.observableArrayList("Minimax with Alpha-Beta Pruning", "Hill-Climbing Search", "Genetic Algorithm"));
         this.player1.setText("Human");
         this.player2.setText("Bot");
 
@@ -83,7 +87,20 @@ public class InputFrameController{
 
             // Get controller of output frame and pass input including player names and number of rounds chosen.
             OutputFrameController outputFC = loader.getController();
-            outputFC.getInput(this.player1.getText(), this.player2.getText(), this.numberOfRounds.getValue(), this.isBotFirst.isSelected());
+
+            // Bot Algorithm
+            // 1. Minimax
+            // 2. Hill Climbing
+            // 3. Genetic Algorithm
+            int botAlgorithm = 0;
+            if (this.botAlgorithm.getValue().equals("Minimax with Alpha-Beta Pruning")) {
+                botAlgorithm = 1;
+            } else if (this.botAlgorithm.getValue().equals("Hill-Climbing Search")) {
+                botAlgorithm = 2;
+            } else if (this.botAlgorithm.getValue().equals("Genetic Algorithm")) {
+                botAlgorithm = 3;
+            }
+            outputFC.getInput(this.player1.getText(), this.player2.getText(), this.numberOfRounds.getValue(), this.isBotFirst.isSelected(), botAlgorithm);
 
             // Open the new frame.
             Stage secondaryStage = new Stage();

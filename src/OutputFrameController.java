@@ -69,7 +69,7 @@ public class OutputFrameController {
      * @param isBotFirst True if bot is first, false otherwise.
      *
      */
-    void getInput(String name1, String name2, String rounds, boolean isBotFirst){
+    void getInput(String name1, String name2, String rounds, boolean isBotFirst, int botAlgorithm){
         this.playerXName.setText(name1);
         this.playerOName.setText(name2);
         this.roundsLeftLabel.setText(rounds);
@@ -77,7 +77,17 @@ public class OutputFrameController {
         this.isBotFirst = isBotFirst;
 
         // Start bot
-        this.bot = new Bot();
+        if (botAlgorithm == 1) {
+            this.bot = new MinimaxBot();
+        }
+        else if (botAlgorithm == 2) {
+            this.bot = new HillClimbingBot();
+        } 
+        // else if (botAlgorithm == 3) {
+        //     this.bot = new GeneticBot();
+        // }
+
+
         this.playerXTurn = !isBotFirst;
         if (this.isBotFirst) {
             this.moveBot();

@@ -32,12 +32,19 @@
             </Label>
             <ComboBox fx:id="numberOfRounds" GridPane.rowIndex="2" GridPane.columnIndex="1" maxWidth="Infinity" />
 
-            <Label text="Bot goes first: " GridPane.rowIndex="3" GridPane.columnIndex="0">
+            <Label text="Bot Algorithm: " GridPane.rowIndex="3" GridPane.columnIndex="0">
                 <font>
                     <Font name="Arial Bold" size="12"/>
                 </font>
             </Label>
-            <CheckBox fx:id="isBotFirst" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <ComboBox fx:id="botAlgorithm" GridPane.rowIndex="3" GridPane.columnIndex="1" maxWidth="Infinity" />
+
+            <Label text="Bot goes first: " GridPane.rowIndex="4" GridPane.columnIndex="0">
+                <font>
+                    <Font name="Arial Bold" size="12"/>
+                </font>
+            </Label>
+            <CheckBox fx:id="isBotFirst" GridPane.rowIndex="4" GridPane.columnIndex="1" />
         </GridPane>
     </top>
 
