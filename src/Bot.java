@@ -25,8 +25,6 @@ public class Bot {
                 if (board[i][j].getText().equals("")) {
                     board = updateGameBoard(i, j, board, "O");
                     int score = minimax(board, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, false, roundsLeft, i, j);
-                    System.out.println("score: " + score);
-                    System.out.println("i: " + i + " j: " + j);
                     if (score > bestScore) {
                         bestScore = score;
                         move = new int[] { i, j };
@@ -181,5 +179,16 @@ public class Bot {
             }
             System.out.println();
         }
+    }
+
+    public int boardElements(Button[][] board) {
+        int elements = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (!board[i][j].getText().equals(""))
+                    elements++;
+            }
+        }
+        return elements;
     }
 }

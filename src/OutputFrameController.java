@@ -254,12 +254,6 @@ public class OutputFrameController {
         else
             endColumn = j + 1;
 
-        if (this.playerXTurn){
-            System.out.println("=============");
-            System.out.println("i: " + i + " j: " + j);
-            System.out.println("startRow: " + startRow + " endRow: " + endRow);
-            System.out.println("startColumn: " + startColumn + " endColumn: " + endColumn);
-        }
 
         // Search for adjacency for X's and O's or vice versa, and replace them.
         // Update scores for X's and O's accordingly.
@@ -353,12 +347,14 @@ public class OutputFrameController {
     }
 
     private void moveBot() {
-        int[] botMove = this.bot.move(buttons, roundsLeft);
+        Button[][] board = new Button[ROW][COL];
+        for (int i = 0; i < ROW; i++)
+            for (int j = 0; j < COL; j++)
+                board[i][j] = new Button(this.buttons[i][j].getText());
+        int[] botMove = this.bot.move(board, roundsLeft);
         int i = botMove[0];
         int j = botMove[1];
-        // new Alert(Alert.AlertType.INFORMATION, "Bot move: " + i + " " + j).showAndWait();
         if (!this.buttons[i][j].getText().equals("")) {
-            // alert the i and j
             new Alert(Alert.AlertType.ERROR, "Bot Invalid coordinates: Try again!").showAndWait();
             System.exit(1);
             return;
